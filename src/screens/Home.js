@@ -1,15 +1,12 @@
-import React from 'react'
-import { View, Text, StyleSheet, Button} from "react-native";
+import React from "react";
+import { View, Text, StyleSheet, Button } from "react-native";
 
 function Home() {
-    return (
-        <View>
-            <Text>
-                ANASAYFA
-            </Text>
-        </View>
-        
-    )
+  return (
+    <View>
+      <Text>ANASAYFA</Text>
+    </View>
+  );
 }
 
-export default Home
+export default Home;

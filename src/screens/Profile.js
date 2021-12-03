@@ -1,15 +1,43 @@
-import React, { useContext } from 'react'
-import { View, Text, StyleSheet, Button } from "react-native";
-import AuthContext from './Context';
+import React from "react";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { auth } from "../../firebase";
 
-function Profile() {
-    const { signOut } = useContext(AuthContext);
-  
-    return (
-      <View>
-        <Button title="Oturumu Kapat" onPress={() => signOut()} />
-      </View>
-    );
+function Profile({ navigation }) {
+  const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.navigate("SignUp");
+      })
+      .catch((error) => console.log(error.message));
+  };
+  return (
+    <View style={styles.container}>
+      <Text>E-posta adresi: {auth.currentUser?.email}</Text>
+      <TouchableOpacity onPress={handleSignOut} style={styles.button}>
+        <Text style={styles.buttonText}>Oturumu Kapat</Text>
+      </TouchableOpacity>
+    </View>
+  );
 }
-
-export default Profile
+export default Profile;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  button: {
+    backgroundColor: "#0782F9",
+    width: "60%",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+    marginTop: 40,
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "700",
+    fontSize: 16,
+  },
+});
