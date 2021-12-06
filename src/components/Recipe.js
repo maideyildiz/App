@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 
-function About() {
+function Recipe() {
   return (
     <View>
-      <Text>Bu uygulama hakkında bilgi kim yaptı</Text>
+      <Text>single recipe</Text>
     </View>
   );
 }
 
-export default About;
+export default Recipe;
