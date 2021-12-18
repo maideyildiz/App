@@ -6,7 +6,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import SignUp from "./SignUp";
 import Home from "./Home";
-import Search from "./Search";
+import AddRecipe from "./AddRecipe";
 import Profile from "./Profile";
 import About from "./About";
 
@@ -24,9 +24,9 @@ const MainStackScreen = () => (
       options={{ title: "Anasayfa" }}
     />
     <MainStack.Screen
-      name="Search"
-      component={Search}
-      options={{ title: "Ara" }}
+      name="Tarif Ekle"
+      component={AddRecipe}
+      options={{ title: "Tarif Ekle" }}
     />
   </MainStack.Navigator>
 );

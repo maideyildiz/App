@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 
-function Search() {
+function RecipeForm() {
   return (
     <View>
-      <Text>ARAMA</Text>
+      <Text>recipe form</Text>
     </View>
   );
 }
 
-export default Search;
+export default RecipeForm;
