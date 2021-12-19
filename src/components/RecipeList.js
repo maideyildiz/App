@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, View, Text, FlatList, Image,YellowBox } from "react-native";
+import { ScrollView, View, Text, FlatList, Image } from "react-native";
 import { useState, useEffect } from "react/cjs/react.development";
 import { fireDB } from "../../firebase";
 
@@ -9,7 +9,6 @@ function RecipeList() {
   useEffect(() => {
     fetchMyRecipes();
   }, []);
-  YellowBox.ignoreWarnings(['Setting a timer for a log period of time'])
   const fetchMyRecipes = async () => {
     const response = await fireDB.collection("Tarifler");
     const unsubscribe = response.onSnapshot(getRecipeData);

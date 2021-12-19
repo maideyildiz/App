@@ -8,12 +8,28 @@ import {
   View,
 } from "react-native";
 import { auth } from "../../firebase";
+import {Permissions,Notification} from 'expo';
 
-const SignUp = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+// const SignUp = ({ navigation }) => {
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+
+//   const registerForPushNotifications=async()=>{
+//     const {status}=await Permissions.getAsync(Permissions.NOTIFICATIONS);
+//     let finalStatus=status;
+
+//     if(status!=='granted'){
+//       const{status}=await Permissions.askAsync(Permissions.NOTIFICATIONS);
+//       finalStatus=status;
+//     }
+//     if(finalStatus!=='granted'){return;}
+
+//     let {token}=await Notification.getExpoPushTokenAsync();
+//     console.log(token);
+//   }
 
   useEffect(() => {
+    // registerForPushNotifications();
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         navigation.navigate("Home");

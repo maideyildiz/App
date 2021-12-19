@@ -15,12 +15,14 @@ import {
 import { fireDB } from "../../firebase";
 import { StatusBar } from "expo-status-bar";
 
+
 function RecipeForm() {
   const [Name, changeName] = useState();
   const [Materials, changeMaterials] = useState();
   const [Time, changeTime] = useState();
   const [Person, changePerson] = useState();
   const [Preparation, changePreparation] = useState();
+
   const addRecipe = async () => {
     fireDB.collection("Tarifler").add({
       Name,
@@ -29,6 +31,7 @@ function RecipeForm() {
       Person,
       Preparation,
     });
+
   };
   return (
     
