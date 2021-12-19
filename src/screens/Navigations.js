@@ -3,7 +3,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-
 import SignUp from "./SignUp";
 import Home from "./Home";
 import AddRecipe from "./AddRecipe";
@@ -74,5 +73,4 @@ function Navigations() {
     </NavigationContainer>
   );
 }
-
 export default Navigations;
