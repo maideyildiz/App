@@ -34,7 +34,6 @@ function RecipeList() {
         <Text>Loading...</Text>
       </View>
     );
-  console.log(recipes);
   return (
     <ScrollView>
       {recipes.map((recipe, index) => (

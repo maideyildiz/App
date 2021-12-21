@@ -8,28 +8,29 @@ import {
   View,
 } from "react-native";
 import { auth } from "../../firebase";
-import {Permissions,Notification} from 'expo';
+import * as Notifications from "expo-notifications";
+import * as Permissions from "expo-permissions";
 
 const SignUp = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const registerForPushNotifications=async()=>{
-  //   const {status}=await Permissions.getAsync(Permissions.NOTIFICATIONS);
-  //   let finalStatus=status;
-
-  //   if(status!=='granted'){
-  //     const{status}=await Permissions.askAsync(Permissions.NOTIFICATIONS);
-  //     finalStatus=status;
-  //   }
-  //   if(finalStatus!=='granted'){return;}
-
-  //   let {token}=await Notification.getExpoPushTokenAsync();
-  //   console.log(token);
-  // }
+  async function registerForPushNotification(){
+    const {status} = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+    if (status != 'granted') {
+      const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+      // finalStatus = status;
+    }
+    if (status !== 'granted') {
+      alert('Failed to get push token for push notification!');
+      return;
+    }
+    token = (await Notifications.getExpoPushTokenAsync()).data;
+    return token
+  }
 
   useEffect(() => {
-    // registerForPushNotifications();
+    // registerForPushNotification().then(token=>console.log(token));
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         navigation.navigate("Home");
