@@ -1,9 +1,15 @@
 import React from "react";
-import { ScrollView, View, Text, FlatList, Image } from "react-native";
+import { ScrollView, View, Text, FlatList, Image,StyleSheet ,TouchableOpacity} from "react-native";
 import { useState, useEffect } from "react/cjs/react.development";
 import { fireDB } from "../../firebase";
+import SingleRecipe from "./SingleRecipe";
 
-function RecipeList() {
+function RecipeList(props) {
+
+  const handleDetails = () => {
+    navigation.navigate("RecipeDetails");
+  };
+
   const [recipes, setRecipes] = useState();
 
   useEffect(() => {
@@ -37,27 +43,49 @@ function RecipeList() {
   return (
     <ScrollView>
       {recipes.map((recipe, index) => (
-        <Text key={index}>
-          <Image
-            source={{
-              uri: "https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-dish-ketogenic-diet-becris-lineal-color-becris.png",
-            }}
-            alt="recipe"
-            resizeMode="cover"
-            style={{
-              width: 100,
-              height: 100,
-            }}
-          />
-          <Text h1>{recipe.Name}</Text>
-          <Text>Hazırlanma süresi: {recipe.Time}</Text>
-          <Text>Kaç kişilik?: {recipe.Person}</Text>
-          <Text>Malzemeler: {recipe.Materials}</Text>
-          <Text>Hazırlanışı: {recipe.Preparation}</Text>
-        </Text>
+        // <TouchableOpacity style={styles.container} key={index} onPress={() => props.nav.navigate("Details", {
+        //   title: recipe.Name,
+        //   time:recipe.Time,
+        //   person:recipe.Person,
+        //   materials:recipe.Materials,
+        //   pre:recipe.Preparation
+        // })}>
+        //     <Image style={styles.image} source={{ uri:"https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-dish-ketogenic-diet-becris-lineal-color-becris.png" }} />
+        //     <View style={styles.container_right}>
+        //         <Text style={styles.title}>{recipe.Name}</Text>
+        //         <Text style={styles.time}>Kaç kişilik: {recipe.Person}</Text>
+        //         <Text style={styles.time}>Hazırlama süresi: {recipe.Time}</Text>
+        //     </View>
+        // </TouchableOpacity>
+        <SingleRecipe key={index} rec={recipe} lnk={props.nav}/>
       ))}
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+      backgroundColor: "#B2EA70",
+      marginVertical: 10,
+      marginHorizontal: 5,
+      borderRadius: 10,
+      padding: 10,
+      flexDirection: "row",
+      padding: 12,
+  },
+  image: {
+      width: 70,
+      height: 70,
+      marginRight: 10,
+      borderRadius: 10,
+  },
+  title: {
+      fontSize: 15,
+  },
+  time: {
+      color: "#555"
+  }
+});
+
 
 export default RecipeList;

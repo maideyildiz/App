@@ -15,7 +15,6 @@ import {
 import { fireDB } from "../../firebase";
 import { StatusBar } from "expo-status-bar";
 
-
 function RecipeForm() {
   const [Name, changeName] = useState();
   const [Materials, changeMaterials] = useState();
@@ -31,12 +30,9 @@ function RecipeForm() {
       Person,
       Preparation,
     });
-
   };
   return (
-    
     <ScrollView>
-      
       <KeyboardAvoidingView style={styles.container}>
         <View style={styles.inputContainer}>
           <Text>Tarif İsmi</Text>

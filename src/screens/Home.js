@@ -2,9 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import RecipeList from "../components/RecipeList";
 
-function Home() {
+function Home({navigation}) {
   return (
-    <RecipeList/>
+    <RecipeList nav={navigation}/>
   )
 }
 
