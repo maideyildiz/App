@@ -10,6 +10,7 @@ import {
   TextInput,
   Text,
   Button,
+  TouchableOpacity,
   KeyboardAvoidingView,
 } from "react-native";
 import { fireDB } from "../../firebase";
@@ -63,7 +64,11 @@ function RecipeForm() {
             style={styles.input}
             onChangeText={(val) => changePreparation(val)}
           />
-          <Button title="Tarifi Kaydet" onPress={addRecipe} />
+          <TouchableOpacity onPress={addRecipe}>
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>Tarifi Kaydet</Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     </ScrollView>
@@ -84,6 +89,20 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     width: "80%",
+  },
+  button: {
+    marginTop:10,
+    borderRadius: 8,
+    paddingVertical: 14,
+    paddingHorizontal: 10,
+    backgroundColor: "#B2EA70",
+  },
+  buttonText: {
+    color: "black",
+    fontWeight: "normal",
+    textTransform: "uppercase",
+    fontSize: 15,
+    textAlign: "center",
   },
 });
 export default RecipeForm;

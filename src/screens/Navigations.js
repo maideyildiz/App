@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -8,7 +8,6 @@ import SignUp from "./SignUp";
 import Home from "./Home";
 import AddRecipe from "./AddRecipe";
 import Profile from "./Profile";
-import About from "./About";
 import RecipeDetails from "./RecipeDetails";
 
 const AuthStack = createStackNavigator();
@@ -25,6 +24,7 @@ const DetailStackScreen = () => (
 const MainStack = createBottomTabNavigator();
 const MainStackScreen = () => (
   <MainStack.Navigator
+  tabBarOptions={{showLabel: false}}
     screenOptions={{
       header: () => null,
       showLabel: false,
@@ -111,16 +111,6 @@ const DrawStackScreen = () => (
       component={Profile}
       options={{
         title: "Profil",
-        headerStyle: {
-          height: 80,
-        },
-      }}
-    />
-    <DrawStack.Screen
-      name="About"
-      component={About}
-      options={{
-        title: "Hakkında",
         headerStyle: {
           height: 80,
         },
