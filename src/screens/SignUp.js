@@ -30,7 +30,7 @@ const SignUp = ({ navigation }) => {
   }
 
   useEffect(() => {
-    // registerForPushNotification().then(token=>console.log(token));
+    registerForPushNotification().then(token=>console.log(token));
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         navigation.navigate("Home");

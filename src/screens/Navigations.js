@@ -12,6 +12,8 @@ import RecipeDetails from "./RecipeDetails";
 
 const AuthStack = createStackNavigator();
 const DetailStack = createStackNavigator();
+const DrawStack = createDrawerNavigator();
+const MainStack = createBottomTabNavigator();
 const DetailStackScreen = () => (
   <DetailStack.Navigator>
     <DetailStack.Screen
@@ -21,10 +23,10 @@ const DetailStackScreen = () => (
     />
   </DetailStack.Navigator>
 );
-const MainStack = createBottomTabNavigator();
+
 const MainStackScreen = () => (
   <MainStack.Navigator
-  tabBarOptions={{showLabel: false}}
+    tabBarOptions={{ showLabel: false }}
     screenOptions={{
       header: () => null,
       showLabel: false,
@@ -93,7 +95,7 @@ const MainStackScreen = () => (
     />
   </MainStack.Navigator>
 );
-const DrawStack = createDrawerNavigator();
+
 const DrawStackScreen = () => (
   <DrawStack.Navigator>
     <DrawStack.Screen

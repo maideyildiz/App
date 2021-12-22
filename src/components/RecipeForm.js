@@ -1,20 +1,15 @@
-//Push Notification unutma
-
 import React from "react";
 import { useState } from "react/cjs/react.development";
 import {
-  SafeAreaView,
   ScrollView,
   View,
   StyleSheet,
   TextInput,
   Text,
-  Button,
   TouchableOpacity,
   KeyboardAvoidingView,
 } from "react-native";
 import { fireDB } from "../../firebase";
-import { StatusBar } from "expo-status-bar";
 
 function RecipeForm() {
   const [Name, changeName] = useState();
@@ -91,7 +86,7 @@ const styles = StyleSheet.create({
     width: "80%",
   },
   button: {
-    marginTop:10,
+    marginTop: 10,
     borderRadius: 8,
     paddingVertical: 14,
     paddingHorizontal: 10,
